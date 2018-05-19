@@ -3,14 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-<<<<<<< HEAD
 
-//jan goblok
-
-//cct
-=======
-//tes
->>>>>>> origin/dev
 float angle=0.0, deltaAngle = 0.0, ratio;
 float x=0.0f, y=5.0f, z=25.0f; // posisi awal kamera
 float lx=0.0f, ly=0.0f, lz=-1.0f;
