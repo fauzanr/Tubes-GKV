@@ -378,6 +378,69 @@ void Kapal(){
 		
 	glPopMatrix();
 	
+	//Kapal 2
+	glPushMatrix();
+		glTranslatef(25.0f,0.0f,-10.f);
+		glScalef(0.4f,0.4f,0.4f);
+		// body
+		// depan kapan
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(-2.0f,0.0f,0.0f);
+			glVertex3f(-3.6f,3.0f,0.0f);
+			glVertex3f(0.0f,0.0f,6.0f);
+			glVertex3f(0.0f,3.7f,8.0f);
+			glEnd();
+		glPopMatrix();
+		// depan kiri
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(2.0f,0.0f,0.0f);
+			glVertex3f(3.6f,3.0f,0.0f);
+			glVertex3f(0.0f,0.0f,6.0f);
+			glVertex3f(0.0f,3.7f,8.0f);
+			glEnd();
+		glPopMatrix();
+		// belakang kiri
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(2.0f,0.0f,0.0f);
+			glVertex3f(3.6f,3.0f,0.0f);
+			glVertex3f(0.0f,0.0f,-6.0f);
+			glVertex3f(0.0f,3.7f,-8.0f);
+			glEnd();
+		glPopMatrix();
+		// belakang kanan
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(-2.0f,0.0f,0.0f);
+			glVertex3f(-3.6f,3.0f,0.0f);
+			glVertex3f(0.0f,0.0f,-6.0f);
+			glVertex3f(0.0f,3.7f,-8.0f);
+			glEnd();
+		glPopMatrix();
+		
+		// layar
+		// kiri
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(0.0f,0.0f,-6.0f);
+			glVertex3f(-2.0f,0.0f,0.0f);
+			glVertex3f(0.0f,5.8f,0.0f);
+			glVertex3f(0.0f,0.0f,6.0f);
+			glEnd();
+		glPopMatrix();
+		//kanan
+		glPushMatrix();
+			glBegin(GL_TRIANGLE_STRIP);
+			glVertex3f(0.0f,0.0f,-6.0f);
+			glVertex3f(2.0f,0.0f,0.0f);
+			glVertex3f(0.0f,5.8f,0.0f);
+			glVertex3f(0.0f,0.0f,6.0f);
+			glEnd();
+		glPopMatrix();
+	glPopMatrix();
+	
 }
 
 void display(){
