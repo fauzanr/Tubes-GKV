@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+//jan goblok
 
 //cct
 float angle=0.0, deltaAngle = 0.0, ratio;
