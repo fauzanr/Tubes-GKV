@@ -1,7 +1,8 @@
 void Kapal(){
 	//Kapal 1
 	glPushMatrix();
-		glTranslatef(0.0f,-1.0f,0.0f);
+		glTranslatef(-60.0f,-0.0f,35.0f);
+		glRotatef(90,0,1,0);
 		// body
 		// depan kanan
 		glPushMatrix();
