@@ -54,24 +54,24 @@ void moveVertical(int i){
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, 0.0f,1.0f,0.0f);
 }
 
-void Grid() {
-	// Fungsi untuk membuat grid di "lantai"
-	double i;
-	const float Z_MIN = -80, Z_MAX = 80;
-	const float X_MIN = -80, X_MAX = 80;
-	const float gap = 1.5;
-	glColor3f(0.5, 0.5, 0.5);
-	glBegin(GL_LINES);
-	for(i=Z_MIN;i<Z_MAX;i+=gap){
-		glVertex3f(i, 0, Z_MIN);
-		glVertex3f(i, 0, Z_MAX);
-	}
-	for(i=X_MIN;i<X_MAX;i+=gap){
-		glVertex3f(X_MIN, 0, i);
-		glVertex3f(X_MAX, 0, i);
-	}
-	glEnd();
-}
+ void Grid() {
+ //	 Fungsi untuk membuat grid di "lantai"
+ 	 double i;
+ 	 const float Z_MIN = -100, Z_MAX = 75;
+ 	 const float X_MIN = -100, X_MAX = 75;
+ 	 const float gap = 1.5;
+ 	 glColor3f(0.5, 0.5, 0.5);
+ 	 glBegin(GL_LINES);
+ 	 for(i=Z_MIN;i<Z_MAX;i+=gap){
+ 	 	glVertex3f(i, 0, Z_MIN);
+ 	 	glVertex3f(i, 0, Z_MAX);
+ 	 }
+ 	 for(i=X_MIN;i<X_MAX;i+=gap){
+ 	 	glVertex3f(X_MIN, 0, i);
+ 	 	glVertex3f(X_MAX, 0, i);
+ 	 }
+ 	 glEnd();
+ }
 
 void display(){
 	// Kalau move dan angle tidak nol, gerakkan kamera...
@@ -87,7 +87,8 @@ void display(){
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// Gambar grid
-	Grid();
+	 Grid();
+//	 grid();
 	// Gambar objek di sini...
 	Kapal();
 	pulau1();

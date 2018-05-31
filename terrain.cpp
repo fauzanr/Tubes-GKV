@@ -1,3 +1,15 @@
+void grid(){
+	glPushMatrix();
+		glColor3f(0.5,0.5,1.0);
+		glBegin(GL_QUADS);
+			glVertex3f(-90.0,0,-90.0);
+			glVertex3f(90.0,0,-90.0);
+			glVertex3f(90.0,0,90.0);
+			glVertex3f(-90.0,0,90.0);
+		glEnd();
+	glPopMatrix();
+}
+
 void Balok(float panjang,float lebar,float tinggi){
 	glPushMatrix();
 	float p=panjang/2;
