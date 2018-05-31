@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "kapal.cpp"
+#include "terrain.cpp"
 
 //tetew
 float angle=0.0, deltaAngle = 0.0, ratio;
