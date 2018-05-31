@@ -79,7 +79,7 @@ void Balok(float panjang,float lebar,float tinggi){
 	glPopMatrix();
 }
 
-void pulau1(){
+void terrain(){
 	//dock
 	glPushMatrix();
 		glTranslatef(-45,0,35);

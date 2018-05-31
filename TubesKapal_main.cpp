@@ -91,7 +91,7 @@ void display(){
 //	 grid();
 	// Gambar objek di sini...
 	Kapal();
-	pulau1();
+	terrain();
 	glutSwapBuffers();
 	glFlush();
 }
