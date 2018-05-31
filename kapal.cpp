@@ -304,4 +304,4 @@ void Kapal(){
 
 	glPopMatrix();
 
-}
+}s
