@@ -519,6 +519,7 @@ void display(){
 	Grid();
 	// Gambar objek di sini...
 	Kapal();
+	pulau1();
 	glutSwapBuffers();
 	glFlush();
 }
