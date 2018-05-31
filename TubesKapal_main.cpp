@@ -498,6 +498,9 @@ void pulau1(){
 
 	//daratan 1
 	glPushMatrix();
+		glColor3f(0,0,1);
+		glTranslatef(-65,3,-46);
+		Balok(70,109,3);
 	glPopMatrix();
 
 }
