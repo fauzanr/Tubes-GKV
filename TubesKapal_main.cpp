@@ -7,13 +7,20 @@
 #include "kapal.cpp"
 #include "terrain.cpp"
 
-//tetew
 float angle=0.0, deltaAngle = 0.0, ratio;
-float x=0.0f, y=5.0f, z=25.0f; // posisi awal kamera
+float x=0.0f, y=20.0f, z=140.0f; // posisi awal kamera
 float lx=0.0f, ly=0.0f, lz=-1.0f;
 int deltaMove = 0,h,w;
 int deltaZ = 0;
 int bitmapHeight=12;
+
+//variable animasi
+float posXkapal = 0.0;
+float posZkapal = 0.0;
+float rotKapal = 0.0;
+float rotJembatan = 0.0;
+int otw = 0;
+int jmbt = 0;
 
 void Reshape(int w1, int h1){
 	// Fungsi reshape
@@ -54,11 +61,232 @@ void moveVertical(int i){
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, 0.0f,1.0f,0.0f);
 }
 
- void Grid() {
+void otewe(){
+	//RUTE 1
+	if (otw==1) { //lurus pertama
+		if (posZkapal <= 44) {
+			posZkapal += 0.1;
+		}
+		if (posZkapal > 44) {
+			otw = 2;
+			jmbt = 1;
+		}
+	}
+	if (otw==2) { //rotasi ke kiri
+		if (rotKapal <= 90) {
+			rotKapal += 1;
+		}
+		if (rotKapal > 90) {
+			otw = 3;
+		}
+	}
+	if (otw==3) { //lurus kedua
+		if (posXkapal <= 110) {
+			posXkapal += 0.1;
+		}
+		if (posXkapal > 110) {
+			otw = 4;
+		}
+	}
+	if (otw==4) { //rotasi ke kanan
+		if (rotKapal >= 0) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < 0) {
+			otw = 5;
+		}
+	}
+	if (otw==5) { //lurus ketiga
+		if (posZkapal <= 116) {
+			posZkapal += 0.1;
+		}
+		if (posZkapal > 116) {
+			otw = 6;
+		}
+	}
+	if (otw==6) { //rotasi ke kanan
+		if (rotKapal >= -90) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < -90) {
+			otw = 7;
+		}
+	}
+	if (otw==7) { //lurus keempat
+		if (posXkapal >= 30) {
+			posXkapal -= 0.1;
+		}
+		if (posXkapal < 30) {
+			otw = 8;
+		}
+	}
+	if (otw==8) { //rotasi ke kiri 45 derajat
+		if (rotKapal <= -45) {
+			rotKapal += 1;
+		}
+		if (rotKapal > -45) {
+			otw = 9;
+		}
+	}
+	if (otw==9) { //lurus kelima
+		if (posXkapal >= -15) {
+			posXkapal -= 0.1;
+			posZkapal += 0.1;
+		}
+		if (posXkapal < -15) {
+			otw = 10;
+		}
+	}
+	if (otw==10) { //rotasi ke kiri 135 derajat
+		if (rotKapal <= 90) {
+			rotKapal += 1;
+		}
+		if (rotKapal > 90) {
+			otw = 11;
+		}
+	}
+	if (otw==11) { //lurus keenam
+		if (posXkapal <= 85) {
+			posXkapal += 0.1;
+		}
+		if (posXkapal > 85) {
+			otw = 12;
+		}
+	}
+	////////////////////////////////////////////////////////////////////////////
+	//RUTE 2
+	if (otw==13) { //putar balik
+		if (rotKapal <= 270) {
+			rotKapal += 1;
+		}
+		if (rotKapal > 270) {
+			otw = 14;
+		}
+	}
+	if (otw==14) { //lurus pertama
+		if (posXkapal >= -15) {
+			posXkapal -= 0.1;
+		}
+		if (posXkapal < -15) {
+			otw = 15;
+		}
+	}
+	if (otw==15) { //rotasi ke kiri 135 derajat
+		if (rotKapal >= 135) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < 135) {
+			otw = 16;
+		}
+	}
+	if (otw==16) { //lurus kedua
+		if (posXkapal <= 30) {
+			posXkapal += 0.1;
+			posZkapal -= 0.1;
+		}
+		if (posXkapal > 30) {
+			otw = 17;
+		}
+	}
+	if (otw==17) { //rotasi ke kanan 45 derajat
+	 	if (rotKapal >= 90) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 90) {
+	 		otw = 18;
+		}
+	}
+	if (otw==18) { //lurus ketiga
+	 	if (posXkapal <= 110) {
+	 		posXkapal += 0.1;
+	 	}
+	 	if (posXkapal > 110) {
+	 		otw = 19;
+			jmbt = 1;
+	 	}
+	}
+	if (otw==19) { //rotasi ke kiri
+	 	if (rotKapal <= 180) {
+	 		rotKapal += 1;
+	 	}
+	 	if (rotKapal > 180) {
+	 		otw = 20;
+	 	}
+	}
+	if (otw==20) { //lurus keempat
+	 	if (posZkapal >= 44) {
+	 		posZkapal -= 0.1;
+	 	}
+	 	if (posZkapal < 44) {
+	 		otw = 21;
+	 	}
+	}
+	if (otw==21) { //rotasi ke kiri
+	 	if (rotKapal <= 270) {
+	 		rotKapal += 1;
+	 	}
+	 	if (rotKapal > 270) {
+	 		otw = 22;
+	 	}
+	}
+	if (otw==22) { //lurus kelima
+	 	if (posXkapal >= 0) {
+	 		posXkapal -= 0.1;
+	 	}
+	 	if (posXkapal < 0) {
+	 		otw = 23;
+	 	}
+	}
+	if (otw==23) { //rotasi ke kanan
+		if (rotKapal >= 180) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 180) {
+	 		otw = 24;
+	 	}
+	}
+	if (otw==24) { //lurus keenam
+		if (posZkapal >= 0) {
+	 		posZkapal -= 0.1;
+	 	}
+	 	if (posZkapal < 0) {
+	 		otw = 25;
+	 	}
+	}
+	if (otw==25) { //putar balik
+		if (rotKapal >= 0) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 0) {
+	 		otw = 0;
+	 	}
+	}
+}
+
+void animasiJembatan(){
+	if (jmbt==1){
+		if (rotJembatan <= 90) {
+			rotJembatan += 0.1;
+		}
+		if (rotJembatan > 90) {
+			jmbt = 2;
+		}
+	}
+	if (jmbt==2) {
+		if (rotJembatan >= 0) {
+			rotJembatan -= 0.1;
+		}
+		if (rotJembatan < 0) {
+			jmbt = 0;
+		}
+	}
+}
+
+void Grid() {
  //	 Fungsi untuk membuat grid di "lantai"
  	 double i;
- 	 const float Z_MIN = -100, Z_MAX = 75;
- 	 const float X_MIN = -100, X_MAX = 75;
+ 	 const float Z_MIN = -100, Z_MAX = 110;
+ 	 const float X_MIN = -100, X_MAX = 110;
  	 const float gap = 1.5;
  	 glColor3f(0.5, 0.5, 0.5);
  	 glBegin(GL_LINES);
@@ -87,13 +315,42 @@ void display(){
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// Gambar grid
-	 Grid();
-//	 grid();
-	// Gambar objek di sini...
-	Kapal();
+	//Grid();
+	grid();
+	//Objek Kapal
+	glPushMatrix();
+		glTranslatef(-60.0f,-0.0f,35.0f);
+		glRotatef(90,0,1,0);
+		otewe();
+		Kapal(posXkapal,posZkapal,rotKapal);
+	glPopMatrix();
+
+	//Objek jembatan
+	glPushMatrix();
+		animasiJembatan();
+		jembatan(rotJembatan);
+	glPopMatrix();
 	terrain();
+	Rumah();
+	Gedung();
+	Jalan();
 	glutSwapBuffers();
 	glFlush();
+	}
+
+void keyboard(unsigned char key, int x, int y){
+	switch (key)
+	{
+		case 'w' :
+		if (otw==0) {
+			otw = 1;
+		} else if (otw==12) {
+			otw = 13;
+		}break;
+		case 27: exit(0);
+		default : break;
+	}
+	glutPostRedisplay();
 }
 
 void pressKey(int key, int x, int y) {
@@ -180,6 +437,7 @@ int main(int argc, char **argv){
 	glutInitWindowSize(1000,1000);
 	glutCreateWindow("Kapal 3D");
 	glutIgnoreKeyRepeat(1); // Mengabaikan key repeat (saat tombol keyboard dipencet terus)
+	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(pressKey);
 	glutSpecialUpFunc(releaseKey);
 	glutDisplayFunc(display);
