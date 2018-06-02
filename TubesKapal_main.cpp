@@ -7,7 +7,6 @@
 #include "kapal.cpp"
 #include "terrain.cpp"
 
-//
 float angle=0.0, deltaAngle = 0.0, ratio;
 float x=0.0f, y=20.0f, z=140.0f; // posisi awal kamera
 float lx=0.0f, ly=0.0f, lz=-1.0f;
@@ -60,7 +59,8 @@ void moveVertical(int i){
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, 0.0f,1.0f,0.0f);
 }
 
-void otewe(){ //prosedur perjalanan kapal
+void otewe(){
+	//RUTE 1
 	if (otw==1) { //lurus pertama
 		if (posZkapal <= 44) {
 			posZkapal += 0.1;
@@ -150,6 +150,113 @@ void otewe(){ //prosedur perjalanan kapal
 			otw = 12;
 		}
 	}
+	////////////////////////////////////////////////////////////////////////////
+	//RUTE 2
+	if (otw==13) { //putar balik
+		if (rotKapal <= 270) {
+			rotKapal += 1;
+		}
+		if (rotKapal > 270) {
+			otw = 14;
+		}
+	}
+	if (otw==14) { //lurus pertama
+		if (posXkapal >= -15) {
+			posXkapal -= 0.1;
+		}
+		if (posXkapal < -15) {
+			otw = 15;
+		}
+	}
+	if (otw==15) { //rotasi ke kiri 135 derajat
+		if (rotKapal >= 135) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < 135) {
+			otw = 16;
+		}
+	}
+	if (otw==16) { //lurus kedua
+		if (posXkapal <= 30) {
+			posXkapal += 0.1;
+			posZkapal -= 0.1;
+		}
+		if (posXkapal > 30) {
+			otw = 17;
+		}
+	}
+	if (otw==17) { //rotasi ke kanan 45 derajat
+	 	if (rotKapal >= 90) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 90) {
+	 		otw = 18;
+	 	}
+	}
+	if (otw==18) { //lurus ketiga
+	 	if (posXkapal <= 110) {
+	 		posXkapal += 0.1;
+	 	}
+	 	if (posXkapal > 110) {
+	 		otw = 19;
+	 	}
+	}
+	if (otw==19) { //rotasi ke kiri
+	 	if (rotKapal <= 180) {
+	 		rotKapal += 1;
+	 	}
+	 	if (rotKapal > 180) {
+	 		otw = 20;
+	 	}
+	}
+	if (otw==20) { //lurus keempat
+	 	if (posZkapal >= 44) {
+	 		posZkapal -= 0.1;
+	 	}
+	 	if (posZkapal < 44) {
+	 		otw = 21;
+	 	}
+	}
+	if (otw==21) { //rotasi ke kiri
+	 	if (rotKapal <= 270) {
+	 		rotKapal += 1;
+	 	}
+	 	if (rotKapal > 270) {
+	 		otw = 22;
+	 	}
+	}
+	if (otw==22) { //lurus kelima
+	 	if (posXkapal >= 0) {
+	 		posXkapal -= 0.1;
+	 	}
+	 	if (posXkapal < 0) {
+	 		otw = 23;
+	 	}
+	}
+	if (otw==23) { //rotasi ke kanan
+		if (rotKapal >= 180) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 180) {
+	 		otw = 24;
+	 	}
+	}
+	if (otw==24) { //lurus keenam
+		if (posZkapal >= 0) {
+	 		posZkapal -= 0.1;
+	 	}
+	 	if (posZkapal < 0) {
+	 		otw = 25;
+	 	}
+	}
+	if (otw==25) { //putar balik
+		if (rotKapal >= 0) {
+	 		rotKapal -= 1;
+	 	}
+	 	if (rotKapal < 0) {
+	 		otw = 0;
+	 	}
+	}
 }
 
 void Grid() {
@@ -201,7 +308,12 @@ void display(){
 void keyboard(unsigned char key, int x, int y){
 	switch (key)
 	{
-		case 'w' : otw = 1;break;
+		case 'w' :
+		if (otw==0) {
+			otw = 1;
+		} else if (otw==12) {
+			otw = 13;
+		}break;
 		case 27: exit(0);
 		default : break;
 	}
