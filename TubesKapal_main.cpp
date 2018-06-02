@@ -9,15 +9,16 @@
 
 //
 float angle=0.0, deltaAngle = 0.0, ratio;
-float x=0.0f, y=20.0f, z=150.0f; // posisi awal kamera
+float x=0.0f, y=20.0f, z=140.0f; // posisi awal kamera
 float lx=0.0f, ly=0.0f, lz=-1.0f;
 int deltaMove = 0,h,w;
 int deltaZ = 0;
 int bitmapHeight=12;
 
 //variable kapal
-float posXkapal = 0;
-float posZkapal = 0;
+float posXkapal = 0.0;
+float posZkapal = 0.0;
+float rotKapal = 0.0;
 int otw = 0;
 
 void Reshape(int w1, int h1){
@@ -61,19 +62,92 @@ void moveVertical(int i){
 
 void otewe(){ //prosedur perjalanan kapal
 	if (otw==1) { //lurus pertama
-		if (posZkapal <= 42) {
-			posZkapal += 0.02;
+		if (posZkapal <= 44) {
+			posZkapal += 0.1;
 		}
-		if (posZkapal > 42) {
-//			otw = 2;
+		if (posZkapal > 44) {
+			otw = 2;
 		}
 	}
 	if (otw==2) { //rotasi ke kiri
-		if (posZkapal <= 42) {
-			posZkapal += 0.02;
+		if (rotKapal <= 90) {
+			rotKapal += 1;
 		}
-		if (posZkapal > 42) {
-			otw = 2;
+		if (rotKapal > 90) {
+			otw = 3;
+		}
+	}
+	if (otw==3) { //lurus kedua
+		if (posXkapal <= 110) {
+			posXkapal += 0.1;
+		}
+		if (posXkapal > 110) {
+			otw = 4;
+		}
+	}
+	if (otw==4) { //rotasi ke kanan
+		if (rotKapal >= 0) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < 0) {
+			otw = 5;
+		}
+	}
+	if (otw==5) { //lurus ketiga
+		if (posZkapal <= 116) {
+			posZkapal += 0.1;
+		}
+		if (posZkapal > 116) {
+			otw = 6;
+		}
+	}
+	if (otw==6) { //rotasi ke kanan
+		if (rotKapal >= -90) {
+			rotKapal -= 1;
+		}
+		if (rotKapal < -90) {
+			otw = 7;
+		}
+	}
+	if (otw==7) { //lurus keempat
+		if (posXkapal >= 30) {
+			posXkapal -= 0.1;
+		}
+		if (posXkapal < 30) {
+			otw = 8;
+		}
+	}
+	if (otw==8) { //rotasi ke kiri 45 derajat
+		if (rotKapal <= -45) {
+			rotKapal += 1;
+		}
+		if (rotKapal > -45) {
+			otw = 9;
+		}
+	}
+	if (otw==9) { //lurus kelima
+		if (posXkapal >= -15) {
+			posXkapal -= 0.1;
+			posZkapal += 0.1;
+		}
+		if (posXkapal < -15) {
+			otw = 10;
+		}
+	}
+	if (otw==10) { //rotasi ke kiri 135 derajat
+		if (rotKapal <= 90) {
+			rotKapal += 1;
+		}
+		if (rotKapal > 90) {
+			otw = 11;
+		}
+	}
+	if (otw==11) { //lurus keenam
+		if (posXkapal <= 85) {
+			posXkapal += 0.1;
+		}
+		if (posXkapal > 85) {
+			otw = 12;
 		}
 	}
 }
@@ -117,7 +191,7 @@ void display(){
 		glTranslatef(-60.0f,-0.0f,35.0f);
 		glRotatef(90,0,1,0);
 		otewe();
-		Kapal(posXkapal,posZkapal);
+		Kapal(posXkapal,posZkapal,rotKapal);
 	glPopMatrix();
 	terrain();
 	glutSwapBuffers();

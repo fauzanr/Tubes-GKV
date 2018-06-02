@@ -1,8 +1,9 @@
-void Kapal(int posXkapal, int posZkapal){
+void Kapal(float posXkapal, float posZkapal, float rotKapal){
 	//Kapal 1
 	glPushMatrix();
 
 		glTranslatef(posXkapal,0,posZkapal);
+		glRotatef(rotKapal,0,1,0);
 		// body
 		// depan kanan
 		glPushMatrix();
