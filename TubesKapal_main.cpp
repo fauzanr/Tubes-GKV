@@ -285,8 +285,8 @@ void animasiJembatan(){
 void Grid() {
  //	 Fungsi untuk membuat grid di "lantai"
  	 double i;
- 	 const float Z_MIN = -100, Z_MAX = 75;
- 	 const float X_MIN = -100, X_MAX = 75;
+ 	 const float Z_MIN = -100, Z_MAX = 110;
+ 	 const float X_MIN = -100, X_MAX = 110;
  	 const float gap = 1.5;
  	 glColor3f(0.5, 0.5, 0.5);
  	 glBegin(GL_LINES);
@@ -331,6 +331,8 @@ void display(){
 		jembatan(rotJembatan);
 	glPopMatrix();
 	terrain();
+	Rumah();
+	Gedung();
 	glutSwapBuffers();
 	glFlush();
 	}
