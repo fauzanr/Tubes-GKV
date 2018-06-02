@@ -65,7 +65,7 @@ void otewe(){ //prosedur perjalanan kapal
 			posZkapal += 0.02;
 		}
 		if (posZkapal > 42) {
-			otw = 2
+//			otw = 2;
 		}
 	}
 	if (otw==2) { //rotasi ke kiri
@@ -73,7 +73,7 @@ void otewe(){ //prosedur perjalanan kapal
 			posZkapal += 0.02;
 		}
 		if (posZkapal > 42) {
-			otw = 2
+			otw = 2;
 		}
 	}
 }
