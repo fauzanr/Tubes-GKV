@@ -14,11 +14,13 @@ int deltaMove = 0,h,w;
 int deltaZ = 0;
 int bitmapHeight=12;
 
-//variable kapal
+//variable animasi
 float posXkapal = 0.0;
 float posZkapal = 0.0;
 float rotKapal = 0.0;
+float rotJembatan = 0.0;
 int otw = 0;
+int jmbt = 0;
 
 void Reshape(int w1, int h1){
 	// Fungsi reshape
@@ -67,6 +69,7 @@ void otewe(){
 		}
 		if (posZkapal > 44) {
 			otw = 2;
+			jmbt = 1;
 		}
 	}
 	if (otw==2) { //rotasi ke kiri
@@ -191,7 +194,7 @@ void otewe(){
 	 	}
 	 	if (rotKapal < 90) {
 	 		otw = 18;
-	 	}
+		}
 	}
 	if (otw==18) { //lurus ketiga
 	 	if (posXkapal <= 110) {
@@ -199,6 +202,7 @@ void otewe(){
 	 	}
 	 	if (posXkapal > 110) {
 	 		otw = 19;
+			jmbt = 1;
 	 	}
 	}
 	if (otw==19) { //rotasi ke kiri
@@ -259,6 +263,25 @@ void otewe(){
 	}
 }
 
+void animasiJembatan(){
+	if (jmbt==1){
+		if (rotJembatan <= 90) {
+			rotJembatan += 0.1;
+		}
+		if (rotJembatan > 90) {
+			jmbt = 2;
+		}
+	}
+	if (jmbt==2) {
+		if (rotJembatan >= 0) {
+			rotJembatan -= 0.1;
+		}
+		if (rotJembatan < 0) {
+			jmbt = 0;
+		}
+	}
+}
+
 void Grid() {
  //	 Fungsi untuk membuat grid di "lantai"
  	 double i;
@@ -293,12 +316,19 @@ void display(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// Gambar grid
 	Grid();
-	// Gambar objek di sini...
+
+	//Objek Kapal
 	glPushMatrix();
 		glTranslatef(-60.0f,-0.0f,35.0f);
 		glRotatef(90,0,1,0);
 		otewe();
 		Kapal(posXkapal,posZkapal,rotKapal);
+	glPopMatrix();
+
+	//Objek jembatan
+	glPushMatrix();
+		animasiJembatan();
+		jembatan(rotJembatan);
 	glPopMatrix();
 	terrain();
 	glutSwapBuffers();

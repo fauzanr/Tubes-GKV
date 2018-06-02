@@ -79,6 +79,26 @@ void Balok(float panjang,float lebar,float tinggi){
 	glPopMatrix();
 }
 
+void jembatan(float rotJembatan) {
+	glPushMatrix();
+		glPushMatrix();
+			glTranslatef(-30,3,-36);
+			glRotatef(rotJembatan,0,0,1);
+			glTranslatef(7.0,0.0,0.0);
+			glColor3f(1,0,0);
+			Balok(14,25,1);
+		glPopMatrix();
+
+		glPushMatrix();
+			glTranslatef(-2,3,-36);
+			glRotatef(-1*rotJembatan,0,0,1);
+			glTranslatef(-7.0,0.0,0.0);
+			glColor3f(1,0,1);
+			Balok(14,25,1);
+		glPopMatrix();
+	glPopMatrix();
+}
+
 void terrain(){
 	//dock
 	glPushMatrix();
@@ -214,21 +234,6 @@ void terrain(){
 				glVertex3f(27.0f,3.0f,0.0f);
 				glVertex3f(27.0f,3.0f,50.0f);
 				glEnd();
-		glPopMatrix();
-	glPopMatrix();
-
-	//jembatan
-	glPushMatrix();
-		glPushMatrix();
-			glColor3f(1,0,0);
-			glTranslatef(-23,3,-36);
-			Balok(14,25,1);
-		glPopMatrix();
-
-		glPushMatrix();
-			glColor3f(1,0,1);
-			glTranslatef(-9,3,-36);
-			Balok(14,25,1);
 		glPopMatrix();
 	glPopMatrix();
 
