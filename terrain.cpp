@@ -169,7 +169,7 @@ void terrain(){
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,0.0f);
 			glVertex3f(2.0f,3.0f,110.0f);
-			glVertex3f(25.0f,3.0f,110.0f);
+			glVertex3f(60.0f,3.0f,110.0f);
 			glEnd();
 		glPopMatrix();
 
@@ -179,8 +179,8 @@ void terrain(){
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,110.0f);
 			glVertex3f(2.0f,0.0f,110.0f);
-			glVertex3f(25.0f,0.0f,110.0f);
-			glVertex3f(25.0f,3.0f,110.0f);
+			glVertex3f(60.0f,0.0f,110.0f);
+			glVertex3f(60.0f,3.0f,110.0f);
 			glEnd();
 		glPopMatrix();
 
@@ -190,8 +190,8 @@ void terrain(){
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,0.0f);
 			glVertex3f(2.0f,0.0f,0.0f);
-			glVertex3f(25.0f,0.0f,110.0f);
-			glVertex3f(25.0f,3.0f,110.0f);
+			glVertex3f(60.0f,0.0f,110.0f);
+			glVertex3f(60.0f,3.0f,110.0f);
 			glEnd();
 		glPopMatrix();
 	glPopMatrix();
@@ -210,8 +210,8 @@ void terrain(){
 				glBegin(GL_POLYGON);
 				glVertex3f(2.0f,3.0f,0.0f);
 				glVertex3f(2.0f,0.0f,0.0f);
-				glVertex3f(27.0f,0.0f,50.0f);
-				glVertex3f(27.0f,3.0f,50.0f);
+				glVertex3f(27.0f,0.0f,30.0f);
+				glVertex3f(27.0f,3.0f,30.0f);
 				glEnd();
 		glPopMatrix();
 
@@ -221,8 +221,8 @@ void terrain(){
 				glBegin(GL_POLYGON);
 				glVertex3f(27.0f,3.0f,0.0f);
 				glVertex3f(27.0f,0.0f,0.0f);
-				glVertex3f(27.0f,0.0f,50.0f);
-				glVertex3f(27.0f,3.0f,50.0f);
+				glVertex3f(27.0f,0.0f,30.0f);
+				glVertex3f(27.0f,3.0f,30.0f);
 				glEnd();
 		glPopMatrix();
 
@@ -232,10 +232,59 @@ void terrain(){
 				glBegin(GL_POLYGON);
 				glVertex3f(2.0f,3.0f,0.0f);
 				glVertex3f(27.0f,3.0f,0.0f);
-				glVertex3f(27.0f,3.0f,50.0f);
+				glVertex3f(27.0f,3.0f,30.0f);
 				glEnd();
 		glPopMatrix();
 	glPopMatrix();
+
+	//dock2
+		glPushMatrix();
+				glColor3f(0.35,0.1,0);
+				glTranslatef(80,9,-47);
+				Balok(10,20,6);
+		glPopMatrix();
+		//segitiga tegak 1
+		glPushMatrix();
+				glColor3f(0.35,0.16,0.1);
+				glTranslatef(80,6,-37);
+				glBegin(GL_POLYGON);
+				glVertex3f(-5.0f,3.0f,0.0f);
+				glVertex3f(5.0f,3.0f,0.0f);
+				glVertex3f(0.0f,5.0f,0.0f);
+				glEnd();
+		glPopMatrix();
+		//segitiga tegak 2
+		glPushMatrix();
+				glColor3f(0.35,0.16,0.1);
+				glTranslatef(80,6,-57);
+				glBegin(GL_POLYGON);
+				glVertex3f(-5.0f,3.0f,0.0f);
+				glVertex3f(5.0f,3.0f,0.0f);
+				glVertex3f(0.0f,5.0f,0.0f);
+				glEnd();
+		glPopMatrix();
+		//genteng kiri
+		glPushMatrix();
+				glColor3f(0.35,0.16,0.1);
+				glTranslatef(80,6,-57);
+				glBegin(GL_POLYGON);
+				glVertex3f(-5.0f,3.0f,0.0f);
+				glVertex3f(-5.0f,3.0f,20.0f);
+				glVertex3f(0.0f,5.0f,20.0f);
+				glVertex3f(0.0f,5.0f,0.0f);
+				glEnd();
+		glPopMatrix();
+		//genteng kanan
+		glPushMatrix();
+				glColor3f(0.35,0.16,0.1);
+				glTranslatef(80,6,-57);
+				glBegin(GL_POLYGON);
+				glVertex3f(5.0f,3.0f,0.0f);
+				glVertex3f(5.0f,3.0f,20.0f);
+				glVertex3f(0.0f,5.0f,20.0f);
+				glVertex3f(0.0f,5.0f,0.0f);
+				glEnd();
+		glPopMatrix();
 
 	glPopMatrix();
 }
