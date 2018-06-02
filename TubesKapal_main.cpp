@@ -333,6 +333,7 @@ void display(){
 	terrain();
 	Rumah();
 	Gedung();
+	Jalan();
 	glutSwapBuffers();
 	glFlush();
 	}

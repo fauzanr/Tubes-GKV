@@ -731,3 +731,51 @@ void Rumah(){
 
 	glPopMatrix();
 }
+
+void Jalan(){
+	glPushMatrix();
+	//Daratan 1
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(-80,3.5,-45);
+			Balok(10,105,1);
+		glPopMatrix();
+		
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(-55,3.5,-15);
+			Balok(40,10,1);
+		glPopMatrix();
+		
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(-40,3.5,-50);
+			Balok(10,80,1);
+		glPopMatrix();
+		
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(-55,3.5,-92.5);
+			Balok(40,10,1);
+		glPopMatrix();
+		
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(-33,3.5,-35);
+			Balok(6,20,1);
+		glPopMatrix();
+		
+		//daratan2
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(13,3.5,-35);
+			Balok(30,20,1);
+		glPopMatrix();
+		
+		glPushMatrix();
+			glColor3f(0,0,0);
+			glTranslatef(25,3.5,30);
+			Balok(10,150,1);
+		glPopMatrix();
+	glPopMatrix();
+}
