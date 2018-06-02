@@ -7,13 +7,18 @@
 #include "kapal.cpp"
 #include "terrain.cpp"
 
-//tetew
+//
 float angle=0.0, deltaAngle = 0.0, ratio;
-float x=0.0f, y=5.0f, z=25.0f; // posisi awal kamera
+float x=0.0f, y=20.0f, z=150.0f; // posisi awal kamera
 float lx=0.0f, ly=0.0f, lz=-1.0f;
 int deltaMove = 0,h,w;
 int deltaZ = 0;
 int bitmapHeight=12;
+
+//variable kapal
+float posXkapal = 0;
+float posZkapal = 0;
+int otw = 0;
 
 void Reshape(int w1, int h1){
 	// Fungsi reshape
@@ -54,7 +59,26 @@ void moveVertical(int i){
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, 0.0f,1.0f,0.0f);
 }
 
- void Grid() {
+void otewe(){ //prosedur perjalanan kapal
+	if (otw==1) { //lurus pertama
+		if (posZkapal <= 42) {
+			posZkapal += 0.02;
+		}
+		if (posZkapal > 42) {
+			otw = 2
+		}
+	}
+	if (otw==2) { //rotasi ke kiri
+		if (posZkapal <= 42) {
+			posZkapal += 0.02;
+		}
+		if (posZkapal > 42) {
+			otw = 2
+		}
+	}
+}
+
+void Grid() {
  //	 Fungsi untuk membuat grid di "lantai"
  	 double i;
  	 const float Z_MIN = -100, Z_MAX = 75;
@@ -87,13 +111,27 @@ void display(){
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// Gambar grid
-	 Grid();
-//	 grid();
+	Grid();
 	// Gambar objek di sini...
-	Kapal();
+	glPushMatrix();
+		glTranslatef(-60.0f,-0.0f,35.0f);
+		glRotatef(90,0,1,0);
+		otewe();
+		Kapal(posXkapal,posZkapal);
+	glPopMatrix();
 	terrain();
 	glutSwapBuffers();
 	glFlush();
+	}
+
+void keyboard(unsigned char key, int x, int y){
+	switch (key)
+	{
+		case 'w' : otw = 1;break;
+		case 27: exit(0);
+		default : break;
+	}
+	glutPostRedisplay();
 }
 
 void pressKey(int key, int x, int y) {
@@ -180,6 +218,7 @@ int main(int argc, char **argv){
 	glutInitWindowSize(1000,1000);
 	glutCreateWindow("Kapal 3D");
 	glutIgnoreKeyRepeat(1); // Mengabaikan key repeat (saat tombol keyboard dipencet terus)
+	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(pressKey);
 	glutSpecialUpFunc(releaseKey);
 	glutDisplayFunc(display);
