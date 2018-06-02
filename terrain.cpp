@@ -2,10 +2,10 @@ void grid(){
 	glPushMatrix();
 		glColor3f(0.5,0.5,1.0);
 		glBegin(GL_QUADS);
-			glVertex3f(-90.0,0,-90.0);
-			glVertex3f(90.0,0,-90.0);
-			glVertex3f(90.0,0,90.0);
-			glVertex3f(-90.0,0,90.0);
+			glVertex3f(-100.0,0,-100.0);
+			glVertex3f(110.0,0,-100.0);
+			glVertex3f(110.0,0,110.0);
+			glVertex3f(-100.0,0,110.0);
 		glEnd();
 	glPopMatrix();
 }

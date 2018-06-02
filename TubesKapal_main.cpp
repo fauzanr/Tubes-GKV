@@ -315,8 +315,8 @@ void display(){
 	}
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	// Gambar grid
-	Grid();
-
+	//Grid();
+	grid();
 	//Objek Kapal
 	glPushMatrix();
 		glTranslatef(-60.0f,-0.0f,35.0f);
