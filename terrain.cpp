@@ -157,143 +157,80 @@ void terrain(){
 
 	//daratan2
 	glPushMatrix();
-<<<<<<< HEAD
 	glColor3f(0.152941,0.152941 , 0.152941);
 		glPushMatrix();
-=======
-		glPushMatrix();
-			glColor3f(0,0.88,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glTranslatef(20,3,26);
 			Balok(44,168,3);
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-			glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glTranslatef(40,0,0);
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,0.0f);
 			glVertex3f(2.0f,3.0f,110.0f);
-<<<<<<< HEAD
 			glVertex3f(60.0f,3.0f,110.0f);
-=======
-			glVertex3f(25.0f,3.0f,110.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glEnd();
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-			glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glTranslatef(40,0,0);
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,110.0f);
 			glVertex3f(2.0f,0.0f,110.0f);
-<<<<<<< HEAD
 			glVertex3f(60.0f,0.0f,110.0f);
 			glVertex3f(60.0f,3.0f,110.0f);
-=======
-			glVertex3f(25.0f,0.0f,110.0f);
-			glVertex3f(25.0f,3.0f,110.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glEnd();
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-			glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glTranslatef(40,0,0);
 			glBegin(GL_POLYGON);
 			glVertex3f(2.0f,3.0f,0.0f);
 			glVertex3f(2.0f,0.0f,0.0f);
-<<<<<<< HEAD
 			glVertex3f(60.0f,0.0f,110.0f);
 			glVertex3f(60.0f,3.0f,110.0f);
-=======
-			glVertex3f(25.0f,0.0f,110.0f);
-			glVertex3f(25.0f,3.0f,110.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glEnd();
 		glPopMatrix();
 	glPopMatrix();
 
 	//daratan 3
 	glPushMatrix();
-<<<<<<< HEAD
 		glColor3f(0.152941,0.152941 ,0.152941);
 		glPushMatrix();
-=======
-		glPushMatrix();
-			glColor3f(0,0,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 			glTranslatef(82.5,3,-50);
 			Balok(25,100,3);
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-				glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glTranslatef(68,0,0);
 				glBegin(GL_POLYGON);
 				glVertex3f(2.0f,3.0f,0.0f);
 				glVertex3f(2.0f,0.0f,0.0f);
-<<<<<<< HEAD
 				glVertex3f(27.0f,0.0f,30.0f);
 				glVertex3f(27.0f,3.0f,30.0f);
-=======
-				glVertex3f(27.0f,0.0f,50.0f);
-				glVertex3f(27.0f,3.0f,50.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glEnd();
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-				glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glTranslatef(68,0,0);
 				glBegin(GL_POLYGON);
 				glVertex3f(27.0f,3.0f,0.0f);
 				glVertex3f(27.0f,0.0f,0.0f);
-<<<<<<< HEAD
 				glVertex3f(27.0f,0.0f,30.0f);
 				glVertex3f(27.0f,3.0f,30.0f);
-=======
-				glVertex3f(27.0f,0.0f,50.0f);
-				glVertex3f(27.0f,3.0f,50.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glEnd();
 		glPopMatrix();
 
 		glPushMatrix();
-<<<<<<< HEAD
-=======
-				glColor3f(1,1,1);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glTranslatef(68,0,0);
 				glBegin(GL_POLYGON);
 				glVertex3f(2.0f,3.0f,0.0f);
 				glVertex3f(27.0f,3.0f,0.0f);
-<<<<<<< HEAD
 				glVertex3f(27.0f,3.0f,30.0f);
-=======
-				glVertex3f(27.0f,3.0f,50.0f);
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 				glEnd();
 		glPopMatrix();
 	glPopMatrix();
 
-<<<<<<< HEAD
 		//dock2
 		glPushMatrix();
 				glColor3f(0.35,0.1,0);
@@ -840,22 +777,5 @@ void Jalan(){
 			glTranslatef(25,3.5,30);
 			Balok(10,150,1);
 		glPopMatrix();
-=======
-	//jembatan
-	glPushMatrix();
-		glPushMatrix();
-			glColor3f(1,0,0);
-			glTranslatef(-23,3,-36);
-			Balok(14,25,1);
-		glPopMatrix();
-
-		glPushMatrix();
-			glColor3f(1,0,1);
-			glTranslatef(-9,3,-36);
-			Balok(14,25,1);
-		glPopMatrix();
-	glPopMatrix();
-
->>>>>>> 446e2569947fcea55c0a9634c3ce346f3d055c78
 	glPopMatrix();
 }
