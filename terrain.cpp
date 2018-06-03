@@ -1,6 +1,6 @@
 void grid(){
 	glPushMatrix();
-		glColor3f(0.5,0.5,1.0);
+		glColor3f(0.196078f,0.6f,0.8f);
 		glBegin(GL_QUADS);
 			glVertex3f(-100.0,0,-100.0);
 			glVertex3f(110.0,0,-100.0);
